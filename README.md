@@ -34,5 +34,7 @@ In order for an application to be GDPR compliant, it must be able to handle the 
 - Record Delete (In/Out)
 - Record Hold
 - Record Update (In/Out)
+- Notify
+- Consent
 - GetChanges (Created and updated records)
 - Export Data
