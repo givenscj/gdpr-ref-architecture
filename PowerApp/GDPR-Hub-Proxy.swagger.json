@@ -1,0 +1,53 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GDPR Hub Proxy",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "gdprhubproxynew.azurewebsites.net",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/api/GDPR/CreateGDPRRequest": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GDPR Consumer Request",
+        "description": "GDPR Consumer Request",
+        "operationId": "CreateGDPRRequest",
+        "parameters": [
+          {
+            "name": "EmailAddress",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "x-ms-visibility": "advanced"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

@@ -63,6 +63,32 @@ namespace WebApp.GDPRHubProxy.Controllers
             return "Success";
         }
 
+        public string SubjectHold([FromUri]string applicationId, [FromUri]string subjectId, [FromUri]string emailAddress)
+        {
+            try
+            {
+                GDPRMessage msg = new GDPRMessage();
+
+                HoldMessage dm = new HoldMessage();
+                dm.ApplicationId = applicationId;
+                dm.ApplicationSubjectId = subjectId;
+                dm.Direction = "in";
+                msg = dm;
+
+                GDPRSubject s = new GDPRSubject();
+                s.Email = emailAddress;
+                msg.Subject = s;
+
+                MasterGDPRHelper.SendMessage(msg);
+            }
+            catch
+            {
+                return "Failure";
+            }
+
+            return "Success";
+        }
+
         public string CreateGDPRRequest([FromUri]string emailAddress, [FromUri]string type)
         {
             try

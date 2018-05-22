@@ -138,7 +138,9 @@
     <Compile Include="GDPRSubject.cs" />
     <Compile Include="Applications\IGDPRDataSubjectActions.cs" />
     <Compile Include="MasterGDPRHelper.cs" />
+    <Compile Include="Messages\DataSubjectHoldMessage.cs" />
     <Compile Include="Messages\DataSubjectUpdateMessage.cs" />
+    <Compile Include="Messages\HoldMessage.cs" />
     <Compile Include="Messages\ExportMessage.cs" />
     <Compile Include="Messages\DataSubjectConsentMessage.cs" />
     <Compile Include="Messages\DataSubjectQueryMessage.cs" />

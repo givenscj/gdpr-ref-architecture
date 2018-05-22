@@ -82,7 +82,7 @@ namespace GDPR.Util
                         DataSubjectDeleteMessage dm = new DataSubjectDeleteMessage();
                         msg = dm;
                         break;
-                    case "Notify":
+                    case "Query":
                         DataSubjectQueryMessage nm = new DataSubjectQueryMessage();
                         msg = nm;
                         break;
