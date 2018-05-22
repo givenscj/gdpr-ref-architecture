@@ -1,0 +1,37 @@
+﻿EXEC sp_configure 'clr enabled';
+EXEC sp_configure 'clr enabled', 1;
+RECONFIGURE;
+
+ALTER DATABASE GDPRMaster SET TRUSTWORTHY ON;
+
+USE GDPRMaster
+GO
+
+CREATE ASSEMBLY GDPRSQL
+FROM 'C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\bin\Debug\GDPR.SQL.dll'
+WITH PERMISSION_SET=EXTERNAL_ACCESS;
+GO
+
+CREATE FUNCTION dbo.fn_gdpr_subjectdelete(
+     @applicationId         nvarchar(max),
+	 @subjectId         nvarchar(max),
+     @email			nvarchar(max)
+)
+RETURNS nvarchar(max)
+AS
+
+EXTERNAL NAME GDPRSQL.SQLFunctions.SubjectDelete;
+
+GO
+
+CREATE FUNCTION dbo.fn_gdpr_subjectcreate(
+     @applicationId         nvarchar(max),
+	 @subjectId         nvarchar(max),
+     @email			nvarchar(max)
+)
+RETURNS nvarchar(max)
+AS
+
+EXTERNAL NAME GDPRSQL.SQLFunctions.SubjectCreate;
+
+GO

@@ -1,0 +1,1521 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_gdprserver_name": {
+            "defaultValue": "gdprserver",
+            "type": "String"
+        },
+        "sites_GDPRHubProxy_name": {
+            "defaultValue": "GDPRHubProxy",
+            "type": "String"
+        },
+        "vaults_gpdrvault_name": {
+            "defaultValue": "gpdrvault",
+            "type": "String"
+        },
+        "sites_GDPRHubProxyNew_name": {
+            "defaultValue": "GDPRHubProxyNew",
+            "type": "String"
+        },
+        "namespaces_gdprevents_name": {
+            "defaultValue": "gdprevents",
+            "type": "String"
+        },
+        "config_web_name": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "serverfarms_GDPRAppServicePlan_name": {
+            "defaultValue": "GDPRAppServicePlan",
+            "type": "String"
+        },
+        "databases_CRM_name": {
+            "defaultValue": "CRM",
+            "type": "String"
+        },
+        "config_web_name_1": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "storageAccounts_gdprrefstorage_name": {
+            "defaultValue": "gdprrefstorage",
+            "type": "String"
+        },
+        "advisors_DropIndex_name": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "keys_ServiceManaged_name": {
+            "defaultValue": "ServiceManaged",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "databases_GDPRDatabase_name": {
+            "defaultValue": "GDPRDatabase",
+            "type": "String"
+        },
+        "advisors_DefragmentIndex_name": {
+            "defaultValue": "DefragmentIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "encryptionProtector_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "secrets_StorageAccountKey_name": {
+            "defaultValue": "StorageAccountKey",
+            "type": "String"
+        },
+        "secrets_SQLConnectionString_name": {
+            "defaultValue": "SQLConnectionString",
+            "type": "String"
+        },
+        "eventhubs_gdprmessagehub_name": {
+            "defaultValue": "gdprmessagehub",
+            "type": "String"
+        },
+        "advisors_DropIndex_name_1": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "secrets_CRMSQLConnectionString_name": {
+            "defaultValue": "CRMSQLConnectionString",
+            "type": "String"
+        },
+        "secrets_EvenHubConnectionString_name": {
+            "defaultValue": "EvenHubConnectionString",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name_1": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "AuthorizationRules_GDPRPolicy_name": {
+            "defaultValue": "GDPRPolicy",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "defaultValue": "AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "advisors_DefragmentIndex_name_1": {
+            "defaultValue": "DefragmentIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name_1": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name_1": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "advisors_DropIndex_name_2": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "databases_master_name": {
+            "defaultValue": "master",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name_2": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "advisors_DefragmentIndex_name_2": {
+            "defaultValue": "DefragmentIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_3": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "hostNameBindings_gdprhubproxy.azurewebsites.net_name": {
+            "defaultValue": "gdprhubproxy.azurewebsites.net",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2018_05_07_08:40:19_name": {
+            "defaultValue": "ClientIPAddress_2018-05-07_08:40:19",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2018_05_16_02:47:33_name": {
+            "defaultValue": "ClientIPAddress_2018-05-16_02:47:33",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2018_05_20_09:06:01_name": {
+            "defaultValue": "ClientIPAddress_2018-05-20_09:06:01",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2018_05_20_09:09:10_name": {
+            "defaultValue": "ClientIPAddress_2018-05-20_09:09:10",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name_2": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name_2": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name_1": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "defaultValue": "RootManageSharedAccessKey",
+            "type": "String"
+        },
+        "hostNameBindings_gdprhubproxynew.azurewebsites.net_name": {
+            "defaultValue": "gdprhubproxynew.azurewebsites.net",
+            "type": "String"
+        },
+        "consumergroups_$Default_name": {
+            "defaultValue": "$Default",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name_2": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "consumergroups_gdprgroup_name": {
+            "defaultValue": "gdprgroup",
+            "type": "String"
+        },
+        "authorizationRules_GDPRPolicy_name_1": {
+            "defaultValue": "GDPRPolicy",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents'.",
+            "type": "Microsoft.EventHub/namespaces",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "name": "[parameters('namespaces_gdprevents_name')]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "isAutoInflateEnabled": true,
+                "maximumThroughputUnits": 20
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.KeyVault/vaults/gpdrvault'.",
+            "type": "Microsoft.KeyVault/vaults",
+            "name": "[parameters('vaults_gpdrvault_name')]",
+            "apiVersion": "2016-10-01",
+            "location": "centralus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "sku": {
+                    "family": "A",
+                    "name": "Standard"
+                },
+                "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                "accessPolicies": [
+                    {
+                        "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                        "objectId": "c1c8abcf-aa1f-443b-aa47-93df8879d9b2",
+                        "permissions": {
+                            "keys": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore"
+                            ],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore"
+                            ],
+                            "certificates": [
+                                "Get",
+                                "List",
+                                "Update",
+                                "Create",
+                                "Import",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore",
+                                "ManageContacts",
+                                "ManageIssuers",
+                                "GetIssuers",
+                                "ListIssuers",
+                                "SetIssuers",
+                                "DeleteIssuers"
+                            ]
+                        }
+                    },
+                    {
+                        "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                        "objectId": "fd02bff8-c1f3-4947-adaf-c26ff936806b",
+                        "permissions": {
+                            "keys": [],
+                            "secrets": [
+                                "Get",
+                                "List",
+                                "Set",
+                                "Delete",
+                                "Recover",
+                                "Backup",
+                                "Restore",
+                                "Purge"
+                            ],
+                            "certificates": []
+                        }
+                    }
+                ],
+                "enabledForDeployment": false,
+                "enabledForDiskEncryption": false,
+                "enabledForTemplateDeployment": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_gdprserver_name')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "centralus",
+            "scale": null,
+            "properties": {
+                "administratorLogin": "s2admin",
+                "version": "12.0"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Storage/storageAccounts/gdprrefstorage'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_RAGRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_gdprrefstorage_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "centralus",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/serverfarms/GDPRAppServicePlan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
+                "capacity": 1
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_GDPRAppServicePlan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_GDPRAppServicePlan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxy'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_GDPRHubProxy_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "tags": {
+                "hidden-related:/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/serverfarms/GDPRAppServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_GDPRHubProxy_name'),'gdprhubproxy.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_GDPRHubProxy_name'),'gdprhubproxy.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_GDPRAppServicePlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_GDPRAppServicePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxyNew'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_GDPRHubProxyNew_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "identity": {
+                "principalId": "d072ad58-1986-45b1-ac68-dbec2c1f8f46",
+                "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                "type": "SystemAssigned"
+            },
+            "tags": {
+                "hidden-related:/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/serverfarms/GDPRAppServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_GDPRHubProxyNew_name'),'gdprhubproxynew.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_GDPRHubProxyNew_name'),'gdprhubproxynew.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_GDPRAppServicePlan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_GDPRAppServicePlan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/AuthorizationRules/RootManageSharedAccessKey'.",
+            "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('AuthorizationRules_RootManageSharedAccessKey_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/AuthorizationRules/GDPRPolicy'.",
+            "type": "Microsoft.EventHub/namespaces/AuthorizationRules",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('AuthorizationRules_GDPRPolicy_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Listen",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/eventhubs/gdprmessagehub'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('eventhubs_gdprmessagehub_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 1,
+                "partitionCount": 2,
+                "status": "Active",
+                "captureDescription": {
+                    "enabled": true,
+                    "encoding": "Avro",
+                    "destination": {
+                        "name": "EventHubArchive.AzureBlockBlob",
+                        "properties": {
+                            "storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_gdprrefstorage_name'))]",
+                            "blobContainer": "gpdrmessages",
+                            "archiveNameFormat": "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}"
+                        }
+                    },
+                    "intervalInSeconds": 300,
+                    "sizeLimitInBytes": 314572800
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_gdprrefstorage_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/eventhubs/gdprmessagehub/authorizationRules/GDPRPolicy'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('eventhubs_gdprmessagehub_name'), '/', parameters('authorizationRules_GDPRPolicy_name_1'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Manage",
+                    "Listen",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_gdprevents_name'), parameters('eventhubs_gdprmessagehub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/eventhubs/gdprmessagehub/consumergroups/$Default'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('eventhubs_gdprmessagehub_name'), '/', parameters('consumergroups_$Default_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_gdprevents_name'), parameters('eventhubs_gdprmessagehub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourcegroups/GDPR-ReferenceArch/providers/Microsoft.EventHub/namespaces/gdprevents/eventhubs/gdprmessagehub/consumergroups/gdprgroup'.",
+            "type": "Microsoft.EventHub/namespaces/eventhubs/consumergroups",
+            "name": "[concat(parameters('namespaces_gdprevents_name'), '/', parameters('eventhubs_gdprmessagehub_name'), '/', parameters('consumergroups_gdprgroup_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {},
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaces_gdprevents_name'))]",
+                "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_gdprevents_name'), parameters('eventhubs_gdprmessagehub_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.KeyVault/vaults/gpdrvault/secrets/StorageAccountKey'.",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('vaults_gpdrvault_name'), '/', parameters('secrets_StorageAccountKey_name'))]",
+            "apiVersion": "2016-10-01",
+            "location": "centralus",
+            "scale": null,
+            "properties": {
+                "attributes": {
+                    "enabled": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('vaults_gpdrvault_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.KeyVault/vaults/gpdrvault/secrets/CRMSQLConnectionString'.",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('vaults_gpdrvault_name'), '/', parameters('secrets_CRMSQLConnectionString_name'))]",
+            "apiVersion": "2016-10-01",
+            "location": "centralus",
+            "scale": null,
+            "properties": {
+                "attributes": {
+                    "enabled": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('vaults_gpdrvault_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.KeyVault/vaults/gpdrvault/secrets/EvenHubConnectionString'.",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('vaults_gpdrvault_name'), '/', parameters('secrets_EvenHubConnectionString_name'))]",
+            "apiVersion": "2016-10-01",
+            "location": "centralus",
+            "scale": null,
+            "properties": {
+                "attributes": {
+                    "enabled": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('vaults_gpdrvault_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.KeyVault/vaults/gpdrvault/secrets/SQLConnectionString'.",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('vaults_gpdrvault_name'), '/', parameters('secrets_SQLConnectionString_name'))]",
+            "apiVersion": "2016-10-01",
+            "location": "centralus",
+            "scale": null,
+            "properties": {
+                "attributes": {
+                    "enabled": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.KeyVault/vaults', parameters('vaults_gpdrvault_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('advisors_CreateIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('advisors_DropIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('advisors_DbParameterization_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/advisors/DefragmentIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('advisors_DefragmentIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/auditingPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('auditingPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "fullAuditLogsTableName": "SQLDBAuditLogsGdprserver",
+                "auditLogsTableName": "Gdprserver",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "databaseId": "9f026043-6af9-45db-9a59-a935a4d64e61",
+                "edition": "Standard",
+                "status": "Online",
+                "serviceLevelObjective": "S0",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "268435456000",
+                "creationDate": "2018-05-08T01:55:54.577Z",
+                "currentServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveName": "S0",
+                "sampleName": null,
+                "defaultSecondaryLocation": "East US 2",
+                "earliestRestoreDate": "2018-05-08T02:04:52.913Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "databaseId": "56420632-7554-452f-bb25-5cce6bb2d6a7",
+                "edition": "Standard",
+                "status": "Online",
+                "serviceLevelObjective": "S0",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "268435456000",
+                "creationDate": "2018-05-07T19:22:32.817Z",
+                "currentServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveId": "f1173c43-91bd-4aaa-973c-54e79e15235b",
+                "requestedServiceObjectiveName": "S0",
+                "sampleName": null,
+                "defaultSecondaryLocation": "East US 2",
+                "earliestRestoreDate": "2018-05-07T19:30:46.593Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('firewallRules_AllowAllWindowsAzureIps_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/firewallRules/ClientIPAddress_2018-05-07_08:40:19'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('firewallRules_ClientIPAddress_2018_05_07_08:40:19_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "99.28.68.128",
+                "endIpAddress": "99.28.68.128"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/firewallRules/ClientIPAddress_2018-05-16_02:47:33'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('firewallRules_ClientIPAddress_2018_05_16_02:47:33_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "70.179.31.17",
+                "endIpAddress": "70.179.31.17"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/firewallRules/ClientIPAddress_2018-05-20_09:06:01'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('firewallRules_ClientIPAddress_2018_05_20_09:06:01_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "136.179.21.72",
+                "endIpAddress": "136.179.21.72"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/firewallRules/ClientIPAddress_2018-05-20_09:09:10'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('firewallRules_ClientIPAddress_2018_05_20_09:09:10_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "136.179.21.74",
+                "endIpAddress": "136.179.21.74"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/encryptionProtector/current'.",
+            "type": "Microsoft.Sql/servers/encryptionProtector",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('encryptionProtector_current_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyName": "ServiceManaged",
+                "serverKeyType": "ServiceManaged"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/keys/ServiceManaged'.",
+            "type": "Microsoft.Sql/servers/keys",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('keys_ServiceManaged_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyType": "[parameters('keys_ServiceManaged_name')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('advisors_CreateIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('advisors_DropIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('advisors_DbParameterization_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/advisors/DefragmentIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('advisors_DefragmentIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('advisors_ForceLastGoodPlan_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('auditingPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsGdprserverCrm",
+                "auditLogsTableName": "GdprserverCrm",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('geoBackupPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/CRM/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_CRM_name'), '/', parameters('transparentDataEncryption_current_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "status": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_CRM_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('advisors_CreateIndex_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('advisors_DropIndex_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('advisors_DbParameterization_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/advisors/DefragmentIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('advisors_DefragmentIndex_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('advisors_ForceLastGoodPlan_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('auditingPolicies_Default_name_3'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsGdprserverGdprdatabase",
+                "auditLogsTableName": "GdprserverGdprdatabase",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('geoBackupPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/GDPRDatabase/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_GDPRDatabase_name'), '/', parameters('transparentDataEncryption_current_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "status": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_gdprserver_name'), parameters('databases_GDPRDatabase_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/master/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_master_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsGdprserverMaster",
+                "auditLogsTableName": "GdprserverMaster",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/master/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_master_name'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Sql/servers/gdprserver/databases/master/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_gdprserver_name'), '/', parameters('databases_master_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "status": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_gdprserver_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxy/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_GDPRHubProxy_name'), '/', parameters('config_web_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "tags": {
+                "hidden-related:/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/serverfarms/GDPRAppServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2017",
+                "httpLoggingEnabled": true,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": true,
+                "publishingUsername": "$GDPRHubProxy",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": false,
+                "minTlsVersion": "1.0",
+                "ftpsState": "AllAllowed"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_GDPRHubProxy_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxy/hostNameBindings/gdprhubproxy.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_GDPRHubProxy_name'), '/', parameters('hostNameBindings_gdprhubproxy.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "siteName": "GDPRHubProxy",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_GDPRHubProxy_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxyNew/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_GDPRHubProxyNew_name'), '/', parameters('config_web_name_1'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "tags": {
+                "hidden-related:/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/serverfarms/GDPRAppServicePlan": "empty"
+            },
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": null,
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$GDPRHubProxyNew",
+                "publishingPassword": null,
+                "appSettings": null,
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": 17,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "http20Enabled": false,
+                "minTlsVersion": "1.0",
+                "ftpsState": "AllAllowed"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_GDPRHubProxyNew_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/e433f371-e5e9-4238-abc2-7c38aa596a18/resourceGroups/GDPR-ReferenceArch/providers/Microsoft.Web/sites/GDPRHubProxyNew/hostNameBindings/gdprhubproxynew.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_GDPRHubProxyNew_name'), '/', parameters('hostNameBindings_gdprhubproxynew.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "Central US",
+            "scale": null,
+            "properties": {
+                "siteName": "GDPRHubProxyNew",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_GDPRHubProxyNew_name'))]"
+            ]
+        }
+    ]
+}

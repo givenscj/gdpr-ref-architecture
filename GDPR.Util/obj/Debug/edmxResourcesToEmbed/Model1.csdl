@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GDPRDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GDPRDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applications" EntityType="GDPRDatabaseModel.Application" />
+    <EntitySet Name="Processors" EntityType="GDPRDatabaseModel.Processor" />
+    <EntitySet Name="Subjects" EntityType="GDPRDatabaseModel.Subject" />
+    <EntitySet Name="SubjectApplications" EntityType="GDPRDatabaseModel.SubjectApplication" />
+    <EntitySet Name="SubjectApplicationConsents" EntityType="GDPRDatabaseModel.SubjectApplicationConsent" />
+    <EntitySet Name="SubjectRequests" EntityType="GDPRDatabaseModel.SubjectRequest" />
+    <EntitySet Name="SubjectRequestApplications" EntityType="GDPRDatabaseModel.SubjectRequestApplication" />
+    <AssociationSet Name="FK_SubjectApplication_Application" Association="GDPRDatabaseModel.FK_SubjectApplication_Application">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplicationConsent_Application" Association="GDPRDatabaseModel.FK_SubjectApplicationConsent_Application">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="SubjectApplicationConsent" EntitySet="SubjectApplicationConsents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequestApplication_Application" Association="GDPRDatabaseModel.FK_SubjectRequestApplication_Application">
+      <End Role="Application" EntitySet="Applications" />
+      <End Role="SubjectRequestApplication" EntitySet="SubjectRequestApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplication_Processor" Association="GDPRDatabaseModel.FK_SubjectApplication_Processor">
+      <End Role="Processor" EntitySet="Processors" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplication_Subject" Association="GDPRDatabaseModel.FK_SubjectApplication_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplicationConsent_Subject" Association="GDPRDatabaseModel.FK_SubjectApplicationConsent_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="SubjectApplicationConsent" EntitySet="SubjectApplicationConsents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequest_Subject" Association="GDPRDatabaseModel.FK_SubjectRequest_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="SubjectRequest" EntitySet="SubjectRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequestApplication_SubjectRequest" Association="GDPRDatabaseModel.FK_SubjectRequestApplication_SubjectRequest">
+      <End Role="SubjectRequest" EntitySet="SubjectRequests" />
+      <End Role="SubjectRequestApplication" EntitySet="SubjectRequestApplications" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ProcessorClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubjectApplications" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Application" FromRole="Application" ToRole="SubjectApplication" />
+    <NavigationProperty Name="SubjectApplicationConsents" Relationship="GDPRDatabaseModel.FK_SubjectApplicationConsent_Application" FromRole="Application" ToRole="SubjectApplicationConsent" />
+    <NavigationProperty Name="SubjectRequestApplications" Relationship="GDPRDatabaseModel.FK_SubjectRequestApplication_Application" FromRole="Application" ToRole="SubjectRequestApplication" />
+  </EntityType>
+  <EntityType Name="Processor">
+    <Key>
+      <PropertyRef Name="ProcessorId" />
+    </Key>
+    <Property Name="ProcessorId" Type="Guid" Nullable="false" />
+    <Property Name="ShortName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LongName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessorClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubjectApplications" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Processor" FromRole="Processor" ToRole="SubjectApplication" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="Guid" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmployee" Type="Boolean" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="SubjectApplications" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Subject" FromRole="Subject" ToRole="SubjectApplication" />
+    <NavigationProperty Name="SubjectApplicationConsents" Relationship="GDPRDatabaseModel.FK_SubjectApplicationConsent_Subject" FromRole="Subject" ToRole="SubjectApplicationConsent" />
+    <NavigationProperty Name="SubjectRequests" Relationship="GDPRDatabaseModel.FK_SubjectRequest_Subject" FromRole="Subject" ToRole="SubjectRequest" />
+  </EntityType>
+  <EntityType Name="SubjectApplication">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="SubjectId" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationSubjectId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessorId" Type="Guid" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="LockedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Application" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Application" FromRole="SubjectApplication" ToRole="Application" />
+    <NavigationProperty Name="Processor" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Processor" FromRole="SubjectApplication" ToRole="Processor" />
+    <NavigationProperty Name="Subject" Relationship="GDPRDatabaseModel.FK_SubjectApplication_Subject" FromRole="SubjectApplication" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="SubjectApplicationConsent">
+    <Key>
+      <PropertyRef Name="SubjectApplicationConsentId" />
+    </Key>
+    <Property Name="SubjectApplicationConsentId" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="SubjectId" Type="Guid" Nullable="false" />
+    <Property Name="ConsentDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Application" Relationship="GDPRDatabaseModel.FK_SubjectApplicationConsent_Application" FromRole="SubjectApplicationConsent" ToRole="Application" />
+    <NavigationProperty Name="Subject" Relationship="GDPRDatabaseModel.FK_SubjectApplicationConsent_Subject" FromRole="SubjectApplicationConsent" ToRole="Subject" />
+  </EntityType>
+  <EntityType Name="SubjectRequest">
+    <Key>
+      <PropertyRef Name="SubjectRequestId" />
+    </Key>
+    <Property Name="SubjectRequestId" Type="Guid" Nullable="false" />
+    <Property Name="SubjectId" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsComplete" Type="Boolean" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Subject" Relationship="GDPRDatabaseModel.FK_SubjectRequest_Subject" FromRole="SubjectRequest" ToRole="Subject" />
+    <NavigationProperty Name="SubjectRequestApplication" Relationship="GDPRDatabaseModel.FK_SubjectRequestApplication_SubjectRequest" FromRole="SubjectRequest" ToRole="SubjectRequestApplication" />
+  </EntityType>
+  <EntityType Name="SubjectRequestApplication">
+    <Key>
+      <PropertyRef Name="SubjectRequestApplicationResultId" />
+    </Key>
+    <Property Name="SubjectRequestApplicationResultId" Type="Guid" Nullable="false" />
+    <Property Name="SubjectRequestId" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataExportLink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsComplete" Type="Boolean" />
+    <Property Name="CompletedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Application" Relationship="GDPRDatabaseModel.FK_SubjectRequestApplication_Application" FromRole="SubjectRequestApplication" ToRole="Application" />
+    <NavigationProperty Name="SubjectRequest" Relationship="GDPRDatabaseModel.FK_SubjectRequestApplication_SubjectRequest" FromRole="SubjectRequestApplication" ToRole="SubjectRequest" />
+  </EntityType>
+  <Association Name="FK_SubjectApplication_Application">
+    <End Type="GDPRDatabaseModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectApplication" Role="SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplicationConsent_Application">
+    <End Type="GDPRDatabaseModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectApplicationConsent" Role="SubjectApplicationConsent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectApplicationConsent">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequestApplication_Application">
+    <End Type="GDPRDatabaseModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectRequestApplication" Role="SubjectRequestApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectRequestApplication">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplication_Processor">
+    <End Type="GDPRDatabaseModel.Processor" Role="Processor" Multiplicity="0..1" />
+    <End Type="GDPRDatabaseModel.SubjectApplication" Role="SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Processor">
+        <PropertyRef Name="ProcessorId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="ProcessorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplication_Subject">
+    <End Type="GDPRDatabaseModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectApplication" Role="SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplicationConsent_Subject">
+    <End Type="GDPRDatabaseModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectApplicationConsent" Role="SubjectApplicationConsent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectApplicationConsent">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequest_Subject">
+    <End Type="GDPRDatabaseModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectRequest" Role="SubjectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectRequest">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequestApplication_SubjectRequest">
+    <End Type="GDPRDatabaseModel.SubjectRequest" Role="SubjectRequest" Multiplicity="1" />
+    <End Type="GDPRDatabaseModel.SubjectRequestApplication" Role="SubjectRequestApplication" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectRequest">
+        <PropertyRef Name="SubjectRequestId" />
+      </Principal>
+      <Dependent Role="SubjectRequestApplication">
+        <PropertyRef Name="SubjectRequestApplicationResultId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

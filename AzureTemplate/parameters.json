@@ -1,0 +1,174 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_gdprserver_name": {
+            "value": null
+        },
+        "sites_GDPRHubProxy_name": {
+            "value": null
+        },
+        "vaults_gpdrvault_name": {
+            "value": null
+        },
+        "sites_GDPRHubProxyNew_name": {
+            "value": null
+        },
+        "namespaces_gdprevents_name": {
+            "value": null
+        },
+        "config_web_name": {
+            "value": null
+        },
+        "serverfarms_GDPRAppServicePlan_name": {
+            "value": null
+        },
+        "databases_CRM_name": {
+            "value": null
+        },
+        "config_web_name_1": {
+            "value": null
+        },
+        "storageAccounts_gdprrefstorage_name": {
+            "value": null
+        },
+        "advisors_DropIndex_name": {
+            "value": null
+        },
+        "keys_ServiceManaged_name": {
+            "value": null
+        },
+        "advisors_CreateIndex_name": {
+            "value": null
+        },
+        "databases_GDPRDatabase_name": {
+            "value": null
+        },
+        "advisors_DefragmentIndex_name": {
+            "value": null
+        },
+        "auditingPolicies_Default_name": {
+            "value": null
+        },
+        "advisors_ForceLastGoodPlan_name": {
+            "value": null
+        },
+        "advisors_DbParameterization_name": {
+            "value": null
+        },
+        "encryptionProtector_current_name": {
+            "value": null
+        },
+        "secrets_StorageAccountKey_name": {
+            "value": null
+        },
+        "secrets_SQLConnectionString_name": {
+            "value": null
+        },
+        "eventhubs_gdprmessagehub_name": {
+            "value": null
+        },
+        "advisors_DropIndex_name_1": {
+            "value": null
+        },
+        "secrets_CRMSQLConnectionString_name": {
+            "value": null
+        },
+        "secrets_EvenHubConnectionString_name": {
+            "value": null
+        },
+        "advisors_CreateIndex_name_1": {
+            "value": null
+        },
+        "AuthorizationRules_GDPRPolicy_name": {
+            "value": null
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "value": null
+        },
+        "advisors_DefragmentIndex_name_1": {
+            "value": null
+        },
+        "auditingPolicies_Default_name_1": {
+            "value": null
+        },
+        "geoBackupPolicies_Default_name": {
+            "value": null
+        },
+        "advisors_ForceLastGoodPlan_name_1": {
+            "value": null
+        },
+        "advisors_DbParameterization_name_1": {
+            "value": null
+        },
+        "advisors_DropIndex_name_2": {
+            "value": null
+        },
+        "auditingPolicies_Default_name_2": {
+            "value": null
+        },
+        "databases_master_name": {
+            "value": null
+        },
+        "geoBackupPolicies_Default_name_1": {
+            "value": null
+        },
+        "advisors_CreateIndex_name_2": {
+            "value": null
+        },
+        "transparentDataEncryption_current_name": {
+            "value": null
+        },
+        "advisors_DefragmentIndex_name_2": {
+            "value": null
+        },
+        "auditingPolicies_Default_name_3": {
+            "value": null
+        },
+        "hostNameBindings_gdprhubproxy.azurewebsites.net_name": {
+            "value": null
+        },
+        "geoBackupPolicies_Default_name_2": {
+            "value": null
+        },
+        "firewallRules_ClientIPAddress_2018_05_07_08:40:19_name": {
+            "value": null
+        },
+        "firewallRules_ClientIPAddress_2018_05_16_02:47:33_name": {
+            "value": null
+        },
+        "firewallRules_ClientIPAddress_2018_05_20_09:06:01_name": {
+            "value": null
+        },
+        "firewallRules_ClientIPAddress_2018_05_20_09:09:10_name": {
+            "value": null
+        },
+        "advisors_ForceLastGoodPlan_name_2": {
+            "value": null
+        },
+        "advisors_DbParameterization_name_2": {
+            "value": null
+        },
+        "transparentDataEncryption_current_name_1": {
+            "value": null
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "value": null
+        },
+        "hostNameBindings_gdprhubproxynew.azurewebsites.net_name": {
+            "value": null
+        },
+        "consumergroups_$Default_name": {
+            "value": null
+        },
+        "transparentDataEncryption_current_name_2": {
+            "value": null
+        },
+        "consumergroups_gdprgroup_name": {
+            "value": null
+        },
+        "authorizationRules_GDPRPolicy_name_1": {
+            "value": null
+        }
+    }
+}

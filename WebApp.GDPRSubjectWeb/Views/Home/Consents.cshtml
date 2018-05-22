@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Consents";
+}
+
+<h2>GDPR Notifications</h2>
+
+<table>
+    <tr>
+        <td>
+            SubjectId
+        </td>
+        <td>
+            ApplicationId
+        </td>
+        <td>
+            RequestDate
+        </td>
+        <td>
+            ExportLink
+        </td>
+    </tr>
+    @foreach (var msg in ViewBag.Requests)
+    {
+        <tr>
+            <td>
+                @msg.SubjectRequestId
+            </td>
+            <td>
+                @msg.ApplicationId
+            </td>
+            <td>
+                @msg.CompletedDate
+            </td>
+            <td>
+                <a href="@msg.DataExportLink">@msg.DataExportLink</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GDPRDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ProcessorClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Processor">
+    <Key>
+      <PropertyRef Name="ProcessorId" />
+    </Key>
+    <Property Name="ProcessorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LongName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProcessorClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEmployee" Type="bit" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectApplication">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="SubjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationSubjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProcessorId" Type="uniqueidentifier" />
+    <Property Name="IsLocked" Type="bit" />
+    <Property Name="LockedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectApplicationConsent">
+    <Key>
+      <PropertyRef Name="SubjectApplicationConsentId" />
+    </Key>
+    <Property Name="SubjectApplicationConsentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SubjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ConsentDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectRequest">
+    <Key>
+      <PropertyRef Name="SubjectRequestId" />
+    </Key>
+    <Property Name="SubjectRequestId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SubjectId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsComplete" Type="bit" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectRequestApplication">
+    <Key>
+      <PropertyRef Name="SubjectRequestApplicationResultId" />
+    </Key>
+    <Property Name="SubjectRequestApplicationResultId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SubjectRequestId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataExportLink" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsComplete" Type="bit" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SubjectApplication_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="SubjectApplication" Type="Self.SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplication_Processor">
+    <End Role="Processor" Type="Self.Processor" Multiplicity="0..1" />
+    <End Role="SubjectApplication" Type="Self.SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Processor">
+        <PropertyRef Name="ProcessorId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="ProcessorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplication_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="SubjectApplication" Type="Self.SubjectApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectApplication">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplicationConsent_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="SubjectApplicationConsent" Type="Self.SubjectApplicationConsent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectApplicationConsent">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectApplicationConsent_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="SubjectApplicationConsent" Type="Self.SubjectApplicationConsent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectApplicationConsent">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequest_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="SubjectRequest" Type="Self.SubjectRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="SubjectRequest">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequestApplication_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="SubjectRequestApplication" Type="Self.SubjectRequestApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="SubjectRequestApplication">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectRequestApplication_SubjectRequest">
+    <End Role="SubjectRequest" Type="Self.SubjectRequest" Multiplicity="1" />
+    <End Role="SubjectRequestApplication" Type="Self.SubjectRequestApplication" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectRequest">
+        <PropertyRef Name="SubjectRequestId" />
+      </Principal>
+      <Dependent Role="SubjectRequestApplication">
+        <PropertyRef Name="SubjectRequestApplicationResultId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GDPRDatabaseModelStoreContainer">
+    <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Processor" EntityType="Self.Processor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectApplication" EntityType="Self.SubjectApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectApplicationConsent" EntityType="Self.SubjectApplicationConsent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectRequest" EntityType="Self.SubjectRequest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubjectRequestApplication" EntityType="Self.SubjectRequestApplication" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SubjectApplication_Application" Association="Self.FK_SubjectApplication_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplication_Processor" Association="Self.FK_SubjectApplication_Processor">
+      <End Role="Processor" EntitySet="Processor" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplication_Subject" Association="Self.FK_SubjectApplication_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="SubjectApplication" EntitySet="SubjectApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplicationConsent_Application" Association="Self.FK_SubjectApplicationConsent_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="SubjectApplicationConsent" EntitySet="SubjectApplicationConsent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectApplicationConsent_Subject" Association="Self.FK_SubjectApplicationConsent_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="SubjectApplicationConsent" EntitySet="SubjectApplicationConsent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequest_Subject" Association="Self.FK_SubjectRequest_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="SubjectRequest" EntitySet="SubjectRequest" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequestApplication_Application" Association="Self.FK_SubjectRequestApplication_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="SubjectRequestApplication" EntitySet="SubjectRequestApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectRequestApplication_SubjectRequest" Association="Self.FK_SubjectRequestApplication_SubjectRequest">
+      <End Role="SubjectRequest" EntitySet="SubjectRequest" />
+      <End Role="SubjectRequestApplication" EntitySet="SubjectRequestApplication" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

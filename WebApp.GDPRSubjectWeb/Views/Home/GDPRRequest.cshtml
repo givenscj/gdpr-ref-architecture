@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "GDPR Request";
+}
+
+<h2>Submit a GDPR Request</h2>
+@using (Html.BeginForm("GDPRRequestPost", "Home"))
+{
+    <table>
+        <tr>
+            <td>
+                Request Type:
+            </td>
+            <td>
+                <select name="type" id="rating">
+                    <option>Notify</option>
+                    <option>Data Request</option>
+                    <option>Delete</option>
+                    <option selected>Update</option>
+                    <option>Hold</option>
+                </select>
+            </td>
+        </tr>                
+        <tr>
+            <td></td>
+            <td>
+                <input name="submit" type="submit" />
+            </td>
+        </tr>
+    </table>    
+}

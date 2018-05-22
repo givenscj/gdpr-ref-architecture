@@ -1,0 +1,12 @@
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\CRM.DB.dll.config
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\CRM.DB.dll
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\CRM.DB.pdb
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\EntityFramework.dll
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\EntityFramework.xml
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\obj\Debug\CRM.DB.csproj.CoreCompileInputs.cache
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\obj\Debug\CRM.DB.csproj.CopyComplete
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\obj\Debug\CRM.DB.dll
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\obj\Debug\CRM.DB.pdb
+C:\github\GDPRRefArch\GDPRRefArch\CRM.DB\obj\Debug\CRM.DB.csprojAssemblyReference.cache

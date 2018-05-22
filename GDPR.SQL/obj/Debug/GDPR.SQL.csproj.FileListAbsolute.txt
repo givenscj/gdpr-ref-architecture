@@ -1,0 +1,6 @@
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\bin\Debug\GDPR.SQL.dll
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\bin\Debug\GDPR.SQL.pdb
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\obj\Debug\GDPR.SQL.csproj.CoreCompileInputs.cache
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\obj\Debug\GDPR.SQL.dll
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\obj\Debug\GDPR.SQL.pdb
+C:\github\GDPRRefArch\GDPRRefArch\GDPR.SQL\obj\Debug\GDPR.SQL.csprojAssemblyReference.cache
