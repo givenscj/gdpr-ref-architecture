@@ -1,7 +1,7 @@
 # gdpr-ref-architecture
 ## GDPR Reference Architecture
 
-This is a reference archirecture that demostrates a message and command pattern style of development to support the Data Subject Action Pattern in applicaton "stubs".  It includes the following items:
+This is a reference archirecture that demostrates a message and command pattern style of development to support the [Data Subject Action Pattern](http://blogs.architectingconnectedsystems.com/2017/12/01/gdpr-microsoft-sample-presentation-slides/) in applicaton "stubs".  It includes the following items:
 
 - Azure ARM Template to setup resources
 - Supporting GDPR master database
